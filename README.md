@@ -10,6 +10,6 @@ Run:
 
 2) ```npm run dev```
 
-3) http://localhost:3000/projects/dashboard
+3) http://localhost:3000
 
 
