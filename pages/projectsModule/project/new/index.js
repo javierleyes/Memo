@@ -3,23 +3,19 @@ import Link from "next/link";
 
 export default function NewProject() {
   const [projectData, setProjectData] = useState({
-    Name: "",
-    Description: "",
-    AssignedTo: "",
+    name: "",
+    description: "",
+    assignedTo: "",
   });
 
   // To do: Implement Form.
   // To do: Call API [POST].
   // To do: Implement calendar.
 
-  function handleCancelOnClick(event) {
-    alert("You clicked cancel.");
-  }
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(projectData);
-    setContactInfo({ Name: "", Description: "", AssignedTo: "" });
+    alert(`{name: ${projectData.name}, description: ${projectData.description}, assignedTo: ${projectData.assignedTo}}`);
+    setProjectData({ Name: "", Description: "", AssignedTo: "" });
   };
 
   return (
@@ -31,17 +27,35 @@ export default function NewProject() {
 
       <form onSubmit={handleSubmit}>
         <label>Nombre:</label>
-        <input type="text" value={projectData.Name} />
+        <input
+          type="text"
+          value={projectData.name}
+          onChange={(e) =>
+            setProjectData({ ...projectData, name: e.target.value })
+          }
+        />
         <br />
         <br />
 
         <label>Tipo:</label>
-        <input type="text" value={projectData.Description} />
+        <input
+          type="text"
+          value={projectData.description}
+          onChange={(e) =>
+            setProjectData({ ...projectData, description: e.target.value })
+          }
+        />
         <br />
         <br />
 
         <label>Descripcion:</label>
-        <input type="text" value={projectData.AssignedTo} />
+        <input
+          type="text"
+          value={projectData.assignedTo}
+          onChange={(e) =>
+            setProjectData({ ...projectData, assignedTo: e.target.value })
+          }
+        />
         <br />
         <br />
 
@@ -60,8 +74,8 @@ export default function NewProject() {
       <br />
 
       <Link href="/projectsModule/project/dashboard">
-          <button>Cancelar</button>
-        </Link>
+        <button>Cancelar</button>
+      </Link>
     </>
   );
 }
