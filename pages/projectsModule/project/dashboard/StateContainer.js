@@ -1,4 +1,4 @@
-import Card from "./project/card";
+import Card from './card';
 
 export default function StateContainer({ stateName, projects }) {
   return (

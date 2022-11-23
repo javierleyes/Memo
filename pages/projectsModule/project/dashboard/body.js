@@ -1,7 +1,7 @@
-import StateContainer from "../StateContainer";
+import StateContainer from "./StateContainer";
 
 // To do: Fetch projects from API.
-import MockProjects from "../../../Mock/projects";
+import MockProjects from "../../../../Mock/projects";
 
 export default function Body() {
 
