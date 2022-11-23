@@ -1,4 +1,13 @@
+import { useState } from "react";
+import Link from "next/link";
+
 export default function NewProject() {
+  const [projectData, setProjectData] = useState({
+    Name: "",
+    Description: "",
+    AssignedTo: "",
+  });
+
   // To do: Implement Form.
   // To do: Call API [POST].
   // To do: Implement calendar.
@@ -7,10 +16,11 @@ export default function NewProject() {
     alert("You clicked cancel.");
   }
 
-  function handleSubmit(event) {
-    alert("An essay was submitted: ");
+  const handleSubmit = (event) => {
     event.preventDefault();
-  }
+    console.log(projectData);
+    setContactInfo({ Name: "", Description: "", AssignedTo: "" });
+  };
 
   return (
     <>
@@ -21,25 +31,37 @@ export default function NewProject() {
 
       <form onSubmit={handleSubmit}>
         <label>Nombre:</label>
-        {/* <textarea value={this.state.value} /> */}
-        <textarea  />
+        <input type="text" value={projectData.Name} />
+        <br />
+        <br />
 
         <label>Tipo:</label>
-        {/* <textarea value={this.state.value} /> */}
-        <textarea  />
+        <input type="text" value={projectData.Description} />
+        <br />
+        <br />
 
         <label>Descripcion:</label>
-        {/* <textarea value={this.state.value} /> */}
-        <textarea  />
+        <input type="text" value={projectData.AssignedTo} />
+        <br />
+        <br />
 
         <label>Fecha de inicio:</label>
+        <br />
+        <br />
 
         <label>Fecha de fin:</label>
+        <br />
+        <br />
 
-        <input type="submit" value="Crear" />
+        <button>Crear</button>
       </form>
 
-      <button onClick={handleCancelOnClick}>Cancelar</button>
+      <br />
+      <br />
+
+      <Link href="/projectsModule/project/dashboard">
+          <button>Cancelar</button>
+        </Link>
     </>
   );
 }
